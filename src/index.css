@@ -1,0 +1,4 @@
+body , html , #root{
+    background-color: #171923;
+    scroll-behavior: smooth;
+}
