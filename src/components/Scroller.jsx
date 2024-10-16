@@ -3,6 +3,8 @@ import { borderBtn , shadedBtn } from './style.js';
 import { useState } from "react";
 import { AddIcon, MinusIcon } from "@chakra-ui/icons";
 
+const smBtnSize = 5;
+
 const Scroller = () => {
 
   const [ userInput , setUserinput ] = useState("");
@@ -54,7 +56,7 @@ const Scroller = () => {
                 <HStack borderBottom="1px solid" borderX="1px solid" borderColor="purple.500" roundedBottom={4}>
                   {/* For Control Buttons */}
                   {/* Minus Buttons */}
-                  <IconButton onClick={()=>(handelCount(-1))}>
+                  <IconButton onClick={()=>(handelCount(-1))} backgroundColor={'gray.700'} >
                     <MinusIcon />
                   </IconButton>
                   {/* Count */}
@@ -62,8 +64,8 @@ const Scroller = () => {
                     {count}
                   </Text>
                   {/* Add Button */}
-                  <IconButton onClick={()=>(handelCount(1))}>
-                    <AddIcon />
+                  <IconButton onClick={()=>(handelCount(1))} backgroundColor={'gray.700'} >
+                    <AddIcon  />
                   </IconButton>
                 </HStack>
               </VStack>
