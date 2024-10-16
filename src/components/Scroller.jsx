@@ -58,7 +58,7 @@ const Scroller = () => {
                     <MinusIcon />
                   </IconButton>
                   {/* Count */}
-                  <Text paddingX={4}>
+                  <Text paddingX={4} textColor={'white'}>
                     {count}
                   </Text>
                   {/* Add Button */}
