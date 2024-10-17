@@ -1,12 +1,15 @@
 import { HamburgerIcon } from "@chakra-ui/icons"
 import { Box , VStack , HStack , Text , UnorderedList , ListItem, Link, Button , useTheme, IconButton } from "@chakra-ui/react"
-import { listHover , borderBtn , shadedBtn } from './style.js'
+import { listHover , borderBtn , shadedBtn , hoverList  } from './style.js'
+import { useState } from "react"
 
 const Hero = () => {
 
     const theme = useTheme();
     const purple = theme.colors.purple[900]; //for before pseudo element
     const purpleH = theme.colors.purple[700]; //for hamburger hover
+
+    const [menuVisible, setMenuVisible] = useState(false);
 
   return (
     <Box 
@@ -36,23 +39,70 @@ const Hero = () => {
             md: 14,
             sm: 10
         }} >
-            <IconButton backgroundColor={'transparent'} position={'absolute'} top={5} right={5}
+            <IconButton
+                backgroundColor={'transparent'}
+                position={'absolute'}
+                top={5}
+                right={5}
                 display={{
-                    base:'block',
-                    lg:'none',
+                    base: 'block',
+                    lg: 'none',
                 }}
                 _hover={{
-                    backgroundColor: 'transparent'
+                    backgroundColor: 'transparent',
                 }}
+                onClick={() => setMenuVisible(!menuVisible)} 
             >
-                <HamburgerIcon boxSize={12} textColor={'white'} rounded={'lg'} _hover={{
-                        backgroundColor: `${purpleH}`
+                <HamburgerIcon
+                    boxSize={12}
+                    textColor={'white'}
+                    rounded={'lg'}
+                    _hover={{
+                        backgroundColor: `${purpleH}`,
                     }}
                     transition={'all 0.15s ease-in'}
                     padding={1.5}
-                    
                 />
             </IconButton>
+
+            <Box
+                position={'absolute'}
+                backgroundColor={'transparent'}
+                top={14}
+                right={5}
+                display={menuVisible ? 'block' : 'none'}
+                id="menuBox"
+            >
+                <VStack>
+                    <UnorderedList
+                        styleType="none"
+                        fontSize={{
+                            base: 16,
+                            md: 24,
+                            sm: 16,
+                        }}
+                        spacing={4}
+                        backgroundColor={'purple.800'}
+                        margin={0}
+                    >
+                        <ListItem sx={hoverList} paddingTop={2}>
+                            <Link href="#scroller" _hover={{textDecoration:'none'}}>
+                                Scroller
+                            </Link>
+                        </ListItem>
+                        <ListItem sx={hoverList}>
+                            <Link href="#about" _hover={{textDecoration:'none'}}>
+                                About
+                            </Link>
+                        </ListItem>
+                        <ListItem sx={hoverList} paddingBottom={2}>
+                            <Link href="#contact" _hover={{textDecoration:'none'}}>
+                                Contact
+                            </Link>
+                        </ListItem>
+                    </UnorderedList>
+                </VStack>
+            </Box>
 
             <HStack width={"full"} justifyContent={"space-between"} paddingX={{
                     base: 0,
@@ -127,7 +177,7 @@ const Hero = () => {
                     w={{
                         base:'full',
                         lg: '50%',
-                        md: '50%',
+                        md: '70%',
                         sm: '70%'
                     }}
                 >
@@ -194,7 +244,7 @@ const Hero = () => {
                     {/* <Image src='src/img/Cartoonizing Faces_2.png' alt="Cartoonizing Faces_2.png"
                         w={72}
                     /> */}
-                    <Box
+                    {/* <Box
                         // backgroundImage={"url('src/img/Cartoonizing Faces_2.png')"}
                         backgroundRepeat={'no-repeat'}
                         backgroundSize={'cover'}
@@ -207,7 +257,7 @@ const Hero = () => {
                         justifyContent={'center'}
                         alignItems={'center'}
                         opacity={0.5}
-                    > </Box>
+                    ></Box> */}
                 </Box>
             </HStack>
 
