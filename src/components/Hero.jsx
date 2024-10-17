@@ -195,12 +195,11 @@ const Hero = () => {
                         w={72}
                     /> */}
                     <Box
-                        backgroundImage={"url('src/img/Cartoonizing Faces_2.png')"} correct
+                        // backgroundImage={"url('src/img/Cartoonizing Faces_2.png')"}
                         backgroundRepeat={'no-repeat'}
                         backgroundSize={'cover'}
                         width={96} 
                         height={80}
-                        border="1px solid red" 
                         textColor={'black'}
                         fontWeight={'bold'}
                         fontSize={44}
@@ -208,7 +207,7 @@ const Hero = () => {
                         justifyContent={'center'}
                         alignItems={'center'}
                         opacity={0.5}
-                    > DUMMY IMAGE </Box>
+                    > </Box>
                 </Box>
             </HStack>
 
