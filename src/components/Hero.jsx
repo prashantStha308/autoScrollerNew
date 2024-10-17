@@ -22,7 +22,7 @@ const Hero = () => {
                 height: '100%',
                 backgroundColor: `${purple}`,
                 zIndex: '-1',
-                transform: 'skewY(-3deg)',
+                transform: 'skewY(-5deg)',
                 padding: '20px'
             }
         }}
@@ -207,6 +207,7 @@ const Hero = () => {
                         display={'flex'}
                         justifyContent={'center'}
                         alignItems={'center'}
+                        opacity={0.5}
                     > DUMMY IMAGE </Box>
                 </Box>
             </HStack>
